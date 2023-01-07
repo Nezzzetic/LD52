@@ -8,9 +8,12 @@ using static UnityEditor.PlayerSettings;
 public class LevelManager : MonoBehaviour
 {
     public StarView StarPrefab;
+    public ConstellationPanel ConstellationPanelPrefab;
+    public Transform ConstellationPanelParent;
     public List<StarView> Stars=new List<StarView>();
     public List<StarView> SelectedStars = new List<StarView>();
     public List<ConstellationView> ConstellationViews = new List<ConstellationView>();
+    public List<ConstellationPanel> ConstellationPanels = new List<ConstellationPanel>();
     public float accuracy;
     public Vector2 MinPointOnScene;
     public Vector2 MaxPointOnScene;
@@ -71,6 +74,8 @@ public class LevelManager : MonoBehaviour
             for (int i = 0; i < constellation.starPattern.Length; i++)
                 s += " (" + constellation.starPattern[i].x + " " + constellation.starPattern[i].y + " )";
             Debug.Log(s);
+            var panel = Instantiate(ConstellationPanelPrefab, ConstellationPanelParent);
+            panel.Init(constellation);
         }
     }
 
