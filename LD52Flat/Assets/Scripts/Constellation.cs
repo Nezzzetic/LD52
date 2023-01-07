@@ -6,7 +6,7 @@ using UnityEngine;
 using static UnityEditor.PlayerSettings;
 
 [Serializable]
-public struct Constellation
+public class Constellation
 {
     [SerializeField]
     public string Name;
@@ -15,12 +15,19 @@ public struct Constellation
     [SerializeField]
     public int Size;
     [SerializeField]
+    public int Cost;
+    [SerializeField]
     public ConstellationView ConstellationViewPrefab;
+    [SerializeField]
+    public int State;
 
     public static Constellation GetScaledConstellation(Constellation source)
     {
         var constel=new Constellation();
         constel.Name = source.Name;
+        constel.Cost = source.Cost;
+        constel.Size = source.Size;
+        constel.State = source.State;
         constel.starPattern = new Vector2[source.starPattern.Length];
         constel.ConstellationViewPrefab=source.ConstellationViewPrefab;
         var ymax = source.starPattern[0].y;

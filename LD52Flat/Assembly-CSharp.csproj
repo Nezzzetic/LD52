@@ -62,6 +62,7 @@
     <Compile Include="Assets\Scripts\StarView.cs" />
     <Compile Include="Assets\Scripts\ConstellationView.cs" />
     <Compile Include="Assets\Scripts\ConstellationPanel.cs" />
+    <Compile Include="Assets\Scripts\ConstellationShopPanel.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

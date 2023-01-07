@@ -3,6 +3,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using static UnityEditor.PlayerSettings;
@@ -11,7 +12,9 @@ public class LevelManager : MonoBehaviour
 {
     public StarView StarPrefab;
     public ConstellationPanel ConstellationPanelPrefab;
+    public ConstellationShopPanel ConstellationShopPanelPrefab;
     public Transform ConstellationPanelParent;
+    public Transform ConstellationShopPanelParent;
     public List<StarView> Stars=new List<StarView>();
     public List<StarView> SelectedStars = new List<StarView>();
     public List<ConstellationView> ConstellationViews = new List<ConstellationView>();
@@ -22,6 +25,14 @@ public class LevelManager : MonoBehaviour
     public Vector2Int FieldSize;
     public Vector2 FieldDelta;
     public GameObject ButtonToCreate;
+    public int Points;
+    public float SSize;
+    public float MSize;
+    public float LSize;
+
+    public GameObject ButtonToHarvest;
+    public GameObject ButtonToNigth;
+    public TMP_Text PointsText;
     public List<Constellation> UsedConstel = new List<Constellation>();
 
     public Constellations ConstellationsData;
@@ -31,6 +42,7 @@ public class LevelManager : MonoBehaviour
         _loadConstellation();
         FieldDelta = new Vector2((MaxPointOnScene.x - MinPointOnScene.x) / FieldSize.x, (MaxPointOnScene.y - MinPointOnScene.y) / FieldSize.y);
         ButtonToCreate.SetActive(false);
+        ChangePoints(0);
     }
 
 
@@ -52,12 +64,27 @@ public class LevelManager : MonoBehaviour
             {
                 ButtonToCreate.SetActive(false);
                 Debug.Log("used!");
-            } else
+            } else if (constel.State==0)
             {
+                ButtonToCreate.SetActive(false);
+                Debug.Log("not owned!");
+            }
+            else
+            {
+                var size = getSize(SelectedStars);
+                if (constel.Size==0 && size>SSize)
+                {
+                    Debug.Log("bad size!");
+                }
+                else if (constel.Size == 1 && size > MSize)
+                {
+                    ButtonToCreate.SetActive(false);
+                    Debug.Log("bad size!");
+                } else { 
                 var pos = getCenterOfConstellation(SelectedStars);
-                Debug.Log(pos+ "pospos");
                 ButtonToCreate.SetActive(true);
                 ButtonToCreate.GetComponent<RectTransform>().localPosition = new Vector3(pos.x/FieldDelta.x, pos.y/FieldDelta.y, 0);
+                }
             }
         }
         else
@@ -79,6 +106,14 @@ public class LevelManager : MonoBehaviour
             if (UsedConstel.Contains(constel))
             {
                 Debug.Log("used!");
+                foreach (StarView star in SelectedStars)
+                {
+                    star.Deselect();
+                }
+            }
+            else if (constel.State == 0)
+            {
+                ButtonToCreate.SetActive(false);
                 foreach (StarView star in SelectedStars)
                 {
                     star.Deselect();
@@ -121,8 +156,14 @@ public class LevelManager : MonoBehaviour
             for (int i = 0; i < constellation.starPattern.Length; i++)
                 s += " (" + constellation.starPattern[i].x + " " + constellation.starPattern[i].y + " )";
             Debug.Log(s);
+            
+            var shopPanel = Instantiate(ConstellationShopPanelPrefab, ConstellationShopPanelParent);
+            shopPanel.Init(constellation);
+            shopPanel.OnShopPanelClick += ShopPanelClick;
+            if (constellation.State>0) { 
             var panel = Instantiate(ConstellationPanelPrefab, ConstellationPanelParent);
             panel.Init(constellation);
+            }
         }
     }
 
@@ -140,13 +181,17 @@ public class LevelManager : MonoBehaviour
             star.OnStarClick += OnStarClickAction;
             star.Active = true;
         }
+        ButtonToHarvest.SetActive(true);
+        ButtonToNigth.SetActive(false);
     }
 
-    public void ResetStars()
+    public void Harvest()
     {
+        int harvested = 0;
         SelectedStars.Clear();
         foreach (StarView star in Stars)
         {
+            if (!star.Active) harvested++;
             DestroyStar(star);
         }
         Stars.Clear();
@@ -156,6 +201,14 @@ public class LevelManager : MonoBehaviour
         }
         ConstellationViews.Clear();
         UsedConstel.Clear();
+        ButtonToHarvest.SetActive(false);
+        ButtonToNigth.SetActive(true);
+        ChangePoints(harvested);
+    }
+
+    public void ResetStars()
+    {
+        
         _createStars();
     }
 
@@ -214,6 +267,22 @@ public class LevelManager : MonoBehaviour
         return new Vector3((maxx-minx)/2+ minx, (maxy-miny)/2+ miny, maxy-miny);
     }
 
+    float getSize(List<StarView> stars)
+    {
+        var minx = stars[0].transform.position.x;
+        var maxx = stars[0].transform.position.x;
+        var miny = stars[0].transform.position.y;
+        var maxy = stars[0].transform.position.y;
+        foreach (var view in stars)
+        {
+            if (view.transform.position.x > maxx) maxx = view.transform.position.x;
+            if (view.transform.position.y > maxy) maxy = view.transform.position.y;
+            if (view.transform.position.x < minx) minx = view.transform.position.x;
+            if (view.transform.position.y < miny) miny = view.transform.position.y;
+        }
+        return Math.Abs( (maxx - minx) * (maxy - miny));
+    }
+
     List<StarView> _findAllStarsInside(List<StarView> stars)
     {
         var result = new List<StarView>();
@@ -238,6 +307,25 @@ public class LevelManager : MonoBehaviour
         }
         return result;
     } 
+     public void ChangePoints(int delta)
+    {
+        Points += delta;
+        PointsText.text=Points.ToString();
+    }
 
+    public void ShopPanelClick(ConstellationShopPanel panel)
+    {
+        if (panel.Constellation.Cost > Points) return;
+        ChangePoints(-panel.Constellation.Cost);
+        panel.Constellation.State++;
+        panel.Solded();
+        CreatePanel(panel.Constellation);
+    }
+
+    public void CreatePanel(Constellation constellation)
+    {
+            var panel = Instantiate(ConstellationPanelPrefab, ConstellationPanelParent);
+            panel.Init(constellation);
+    }
 
 }
