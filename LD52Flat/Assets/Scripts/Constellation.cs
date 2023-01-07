@@ -35,11 +35,16 @@ public struct Constellation
     }
 
     public static Constellation[] ConstellationList;
-    public static List<Constellation> SearchConstellations(Vector2[] coords, float accuracy)
+    public static List<Constellation> SearchConstellations(List<StarView> stars, float accuracy)
     {
+        Vector2[] coords =new Vector2[stars.Count];
+        for (int i = 0; i < coords.Length; i++)
+        {
+            coords[i] = stars[i].Coords;
+        }
         var ymin = coords[0].y;
         var idmin = 0;
-        var ymax = coords[0].y;
+        var ymax = 0f;
         for (int i = 0; i < coords.Length; i++)
         {
             if (coords[i].y < ymin)
@@ -50,9 +55,9 @@ public struct Constellation
         }
         for (int i = 0; i < coords.Length; i++)
         {
-            if (coords[i].y > ymax)
+            if (coords[i].y - coords[idmin].y > ymax)
             {
-                ymax = coords[i].y;
+                ymax = coords[i].y - coords[idmin].y;
             }
         }
         ymax = Constellations.STARMAXY / ymax;
@@ -66,12 +71,24 @@ public struct Constellation
         {
             if (c.starPattern.Length != translatedCoords.Length) continue;
             var usedStars = new List<int>();
+
+            var s = "translatedCoords ";
+            for (int i = 0; i < translatedCoords.Length; i++)
+                s += " (" + translatedCoords[i].x + " " + translatedCoords[i].y + " )";
+            Debug.Log(s);
+            s = "starPattern ";
+            for (int i = 0; i < c.starPattern.Length; i++)
+                s += " (" + c.starPattern[i].x + " " + c.starPattern[i].y + " )";
+            Debug.Log(s);
+
             for (var i = 0; i < translatedCoords.Length;i++)
-                for (var j = 0; j < c.starPattern.Length;j++)
-                    if (Vector2.Distance(translatedCoords[i], c.starPattern[j]) < accuracy && !usedStars.Contains(j))
+                for (var j = 0; j < c.starPattern.Length;j++) {
+                    var dist = Vector2.Distance(translatedCoords[i], c.starPattern[j]);
+                    if (dist < accuracy && !usedStars.Contains(j))
                     {
                         usedStars.Add(j);
                     }
+                }
             if (usedStars.Count == c.starPattern.Length)
                 constellationsResult.Add(c);
         }
