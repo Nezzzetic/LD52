@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ConstellationView : MonoBehaviour
 {
-
+    public Constellation Constellation;
     public SpriteRenderer SpriteRenderer;
     // Start is called before the first frame update
     void Start()

@@ -26,6 +26,7 @@ public class LevelManager : MonoBehaviour
     public Vector2 FieldDelta;
     public GameObject ButtonToCreate;
     public int Points;
+    public int NewConstelPoints;
     public float SSize;
     public float MSize;
     public float LSize;
@@ -123,6 +124,8 @@ public class LevelManager : MonoBehaviour
             {
                 _createConstellation(constel, SelectedStars);
                 UsedConstel.Add(constel);
+                constel.State++;
+                constel.CreateAction();
                 var starsInsideZone = _findAllStarsInside(SelectedStars);
                 foreach (StarView star in starsInsideZone)
                 {
@@ -161,8 +164,7 @@ public class LevelManager : MonoBehaviour
             shopPanel.Init(constellation);
             shopPanel.OnShopPanelClick += ShopPanelClick;
             if (constellation.State>0) { 
-            var panel = Instantiate(ConstellationPanelPrefab, ConstellationPanelParent);
-            panel.Init(constellation);
+                CreatePanel(constellation);
             }
         }
     }
@@ -197,6 +199,11 @@ public class LevelManager : MonoBehaviour
         Stars.Clear();
         foreach (ConstellationView cons in ConstellationViews)
         {
+            if (cons.Constellation.State == 2)
+            {
+                cons.Constellation.State ++;
+                ChangePoints(NewConstelPoints);
+            }
             Destroy(cons.gameObject);
         }
         ConstellationViews.Clear();
@@ -248,7 +255,9 @@ public class LevelManager : MonoBehaviour
         Debug.Log(y);
         conView.transform.localScale = Vector3.one / y* pos.z;
         ConstellationViews.Add(conView);
-        
+        conView.Constellation = con;
+
+
     }
 
     Vector3 getCenterOfConstellation(List<StarView> stars)
@@ -313,19 +322,27 @@ public class LevelManager : MonoBehaviour
         PointsText.text=Points.ToString();
     }
 
-    public void ShopPanelClick(ConstellationShopPanel panel)
+    public void ShopPanelClick(ConstellationShopPanel shopPanel)
     {
-        if (panel.Constellation.Cost > Points) return;
-        ChangePoints(-panel.Constellation.Cost);
-        panel.Constellation.State++;
-        panel.Solded();
-        CreatePanel(panel.Constellation);
+        if (shopPanel.Constellation.Cost > Points) return;
+        ChangePoints(-shopPanel.Constellation.Cost);
+        shopPanel.Constellation.State++;
+        shopPanel.Solded();
+        var panel = CreatePanel(shopPanel.Constellation);
     }
 
-    public void CreatePanel(Constellation constellation)
+    public ConstellationPanel CreatePanel(Constellation constellation)
     {
             var panel = Instantiate(ConstellationPanelPrefab, ConstellationPanelParent);
             panel.Init(constellation);
+        constellation.CreateAction += delegate { UnblockPanel(panel); };
+        return panel;
+    }
+
+
+    public void UnblockPanel(ConstellationPanel panel)
+    {
+        panel.Unblock();
     }
 
 }

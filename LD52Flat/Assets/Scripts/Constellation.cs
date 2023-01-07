@@ -21,6 +21,8 @@ public class Constellation
     [SerializeField]
     public int State;
 
+    public Action CreateAction = delegate { };
+
     public static Constellation GetScaledConstellation(Constellation source)
     {
         var constel=new Constellation();

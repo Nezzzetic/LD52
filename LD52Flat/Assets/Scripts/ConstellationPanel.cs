@@ -25,7 +25,6 @@ public class ConstellationPanel : MonoBehaviour
     public void Init(Constellation cons)
     {
         _constellation=cons;
-        Back.sprite = cons.ConstellationViewPrefab.SpriteRenderer.sprite;
         foreach (Vector2 pos in cons.starPattern)
         {
             var star = Instantiate(MinistarsPrefab, StarsParent);
@@ -42,7 +41,11 @@ public class ConstellationPanel : MonoBehaviour
             Debug.Log(x * multy+" " + y * multy);
             star.GetComponent<RectTransform>().localPosition = new Vector3(x * multy - 100, y * multy - 100, 0);
         }
+    }
 
+    public void Unblock()
+    {
+        Back.sprite = _constellation.ConstellationViewPrefab.SpriteRenderer.sprite;
     }
 
 }
