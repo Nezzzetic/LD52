@@ -2,6 +2,8 @@ using Newtonsoft.Json.Serialization;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 using static UnityEditor.PlayerSettings;
 
@@ -19,6 +21,8 @@ public class LevelManager : MonoBehaviour
     public Vector2 MaxPointOnScene;
     public Vector2Int FieldSize;
     public Vector2 FieldDelta;
+    public GameObject ButtonToCreate;
+    public List<Constellation> UsedConstel = new List<Constellation>();
 
     public Constellations ConstellationsData;
     // Start is called before the first frame update
@@ -26,6 +30,7 @@ public class LevelManager : MonoBehaviour
     {
         _loadConstellation();
         FieldDelta = new Vector2((MaxPointOnScene.x - MinPointOnScene.x) / FieldSize.x, (MaxPointOnScene.y - MinPointOnScene.y) / FieldSize.y);
+        ButtonToCreate.SetActive(false);
     }
 
 
@@ -34,19 +39,60 @@ public class LevelManager : MonoBehaviour
     {
         
     }
-    public void Check()
+    public void CheckAndMoveButton()
     {
+        if (SelectedStars.Count == 0) return;
         var constellations = Constellation.SearchConstellations(SelectedStars, accuracy);
         if (constellations.Count > 0)
         {
             foreach (var constellation in constellations)
                 Debug.Log(constellation.Name);
             var constel = constellations[0];
-            _createConstellation(constel, SelectedStars);
-            foreach (StarView star in SelectedStars)
+            if (UsedConstel.Contains(constel))
             {
-                DestroyStar(star);
-                Stars.Remove(star);
+                ButtonToCreate.SetActive(false);
+                Debug.Log("used!");
+            } else
+            {
+                var pos = getCenterOfConstellation(SelectedStars);
+                Debug.Log(pos+ "pospos");
+                ButtonToCreate.SetActive(true);
+                ButtonToCreate.GetComponent<RectTransform>().localPosition = new Vector3(pos.x/FieldDelta.x, pos.y/FieldDelta.y, 0);
+            }
+        }
+        else
+        {
+            ButtonToCreate.SetActive(false);
+            Debug.Log("No constellation");
+        }
+    }
+
+    public void Check()
+    {
+        if (SelectedStars.Count == 0) return;
+        var constellations = Constellation.SearchConstellations(SelectedStars, accuracy);
+        if (constellations.Count > 0)
+        {
+            foreach (var constellation in constellations)
+                Debug.Log(constellation.Name);
+            var constel = constellations[0];
+            if (UsedConstel.Contains(constel))
+            {
+                Debug.Log("used!");
+                foreach (StarView star in SelectedStars)
+                {
+                    star.Deselect();
+                }
+            }
+            else
+            {
+                _createConstellation(constel, SelectedStars);
+                UsedConstel.Add(constel);
+                var starsInsideZone = _findAllStarsInside(SelectedStars);
+                foreach (StarView star in starsInsideZone)
+                {
+                    DeactStar(star);
+                }
             }
         }
         else
@@ -58,6 +104,7 @@ public class LevelManager : MonoBehaviour
             }
         }
         SelectedStars.Clear();
+        ButtonToCreate.SetActive(false);
     }
 
     void _loadConstellation()
@@ -91,6 +138,7 @@ public class LevelManager : MonoBehaviour
             star.transform.position = new Vector3(MinPointOnScene.x + FieldDelta.x * rndx, MinPointOnScene.y + FieldDelta.y * rndy);
             Stars.Add(star);
             star.OnStarClick += OnStarClickAction;
+            star.Active = true;
         }
     }
 
@@ -102,16 +150,19 @@ public class LevelManager : MonoBehaviour
             DestroyStar(star);
         }
         Stars.Clear();
-        _createStars();
         foreach (ConstellationView cons in ConstellationViews)
         {
-            Destroy(cons);
+            Destroy(cons.gameObject);
         }
         ConstellationViews.Clear();
+        UsedConstel.Clear();
+        _createStars();
     }
 
     void OnStarClickAction(StarView star)
     {
+        if (!star.Active) { return; }
+        
         if (SelectedStars.Contains(star))
         {
             SelectedStars.Remove(star);
@@ -121,11 +172,18 @@ public class LevelManager : MonoBehaviour
             SelectedStars.Add(star);
             star.Select();
         }
+        CheckAndMoveButton();
     }
 
     void DestroyStar(StarView star)
     {
         Destroy(star.gameObject);
+    }
+
+    void DeactStar(StarView star)
+    {
+        star.Active = false;
+        star.Deactivate();
     }
 
     void _createConstellation(Constellation con,List<StarView> stars)
@@ -156,6 +214,30 @@ public class LevelManager : MonoBehaviour
         return new Vector3((maxx-minx)/2+ minx, (maxy-miny)/2+ miny, maxy-miny);
     }
 
+    List<StarView> _findAllStarsInside(List<StarView> stars)
+    {
+        var result = new List<StarView>();
+        var minx = stars[0].transform.position.x;
+        var maxx = stars[0].transform.position.x;
+        var miny = stars[0].transform.position.y;
+        var maxy = stars[0].transform.position.y;
+        foreach (var view in stars)
+        {
+            if (view.transform.position.x > maxx) maxx = view.transform.position.x;
+            if (view.transform.position.y > maxy) maxy = view.transform.position.y;
+            if (view.transform.position.x < minx) minx = view.transform.position.x;
+            if (view.transform.position.y < miny) miny = view.transform.position.y;
+        }
+        foreach (var view in Stars)
+        {
+            if (view.transform.position.x > maxx) continue;
+            if (view.transform.position.y > maxy) continue;
+            if (view.transform.position.x < minx) continue;
+            if (view.transform.position.y < miny) continue;
+            result.Add(view);
+        }
+        return result;
+    } 
 
 
 }

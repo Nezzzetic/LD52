@@ -30,7 +30,17 @@ public class ConstellationPanel : MonoBehaviour
         {
             var star = Instantiate(MinistarsPrefab, StarsParent);
             Debug.Log(pos);
-            star.GetComponent<RectTransform>().localPosition = new Vector3(pos.x / 5 - 100, pos.y / 5 - 100, 0);
+            var x = pos.x / 5;
+            var y = pos.y / 5;
+            var multy = 1f;
+            if (x>200)
+            {
+                multy = 200 / x;
+            } else if(x<-200) {
+                multy = - 200 / x;
+            }
+            Debug.Log(x * multy+" " + y * multy);
+            star.GetComponent<RectTransform>().localPosition = new Vector3(x * multy - 100, y * multy - 100, 0);
         }
 
     }

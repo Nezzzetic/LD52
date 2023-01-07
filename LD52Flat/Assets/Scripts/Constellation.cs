@@ -13,6 +13,8 @@ public struct Constellation
     [SerializeField]
     public Vector2[] starPattern;
     [SerializeField]
+    public int Size;
+    [SerializeField]
     public ConstellationView ConstellationViewPrefab;
 
     public static Constellation GetScaledConstellation(Constellation source)

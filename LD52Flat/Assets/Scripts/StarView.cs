@@ -5,9 +5,13 @@ using UnityEngine;
 
 public class StarView : MonoBehaviour
 {
+    public bool Active;
     public Vector2 Coords;
     public SpriteRenderer SpriteRenderer;
     public Action<StarView> OnStarClick = delegate { };
+    public Color DefaultColor;
+    public Color SelectedColor;
+    public Color InactiveColor;
     private void OnMouseDown()
     {
         OnStarClick(this);
@@ -26,11 +30,16 @@ public class StarView : MonoBehaviour
 
     public void Select()
     {
-        SpriteRenderer.color= Color.yellow;
+        SpriteRenderer.color= SelectedColor;
     }
 
     public void Deselect()
     {
-        SpriteRenderer.color = Color.black;
+        SpriteRenderer.color = DefaultColor;
+    }
+
+    public void Deactivate()
+    {
+        SpriteRenderer.color = InactiveColor;
     }
 }
