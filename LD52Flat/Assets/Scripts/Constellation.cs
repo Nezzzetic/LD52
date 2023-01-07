@@ -12,12 +12,15 @@ public struct Constellation
     public string Name;
     [SerializeField]
     public Vector2[] starPattern;
+    [SerializeField]
+    public ConstellationView ConstellationViewPrefab;
 
     public static Constellation GetScaledConstellation(Constellation source)
     {
         var constel=new Constellation();
         constel.Name = source.Name;
         constel.starPattern = new Vector2[source.starPattern.Length];
+        constel.ConstellationViewPrefab=source.ConstellationViewPrefab;
         var ymax = source.starPattern[0].y;
         for (int i = 0; i < source.starPattern.Length; i++)
         {
@@ -94,4 +97,5 @@ public struct Constellation
         }
         return constellationsResult;
     }
+
 }

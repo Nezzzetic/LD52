@@ -49,12 +49,15 @@ MonoBehaviour:
     starPattern:
     - {x: 0, y: 0}
     - {x: 158, y: 164}
+    ConstellationViewPrefab: {fileID: 6941432901993354935, guid: 4184d0ae1baa6e64ca1b89851a21386d, type: 3}
   - Name: Equuleus
     starPattern:
     - {x: 0, y: 0}
     - {x: 30, y: 394}
     - {x: 115, y: 404}
+    ConstellationViewPrefab: {fileID: 314900553127717345, guid: c587dba9686123e4ab4606c029d0ea28, type: 3}
   - Name: Leo Minor
     starPattern:
     - {x: 0, y: 0}
     - {x: 212, y: 87}
+    ConstellationViewPrefab: {fileID: 5039132153959007368, guid: fd0e406364e14b8498cd35ab9e9a9197, type: 3}

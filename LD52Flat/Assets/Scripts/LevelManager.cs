@@ -1,3 +1,4 @@
+using Newtonsoft.Json.Serialization;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -9,6 +10,7 @@ public class LevelManager : MonoBehaviour
     public StarView StarPrefab;
     public List<StarView> Stars=new List<StarView>();
     public List<StarView> SelectedStars = new List<StarView>();
+    public List<ConstellationView> ConstellationViews = new List<ConstellationView>();
     public float accuracy;
     public Vector2 MinPointOnScene;
     public Vector2 MaxPointOnScene;
@@ -21,7 +23,6 @@ public class LevelManager : MonoBehaviour
     {
         _loadConstellation();
         FieldDelta = new Vector2((MaxPointOnScene.x - MinPointOnScene.x) / FieldSize.x, (MaxPointOnScene.y - MinPointOnScene.y) / FieldSize.y);
-        _createStars();
     }
 
 
@@ -37,9 +38,12 @@ public class LevelManager : MonoBehaviour
         {
             foreach (var constellation in constellations)
                 Debug.Log(constellation.Name);
+            var constel = constellations[0];
+            _createConstellation(constel, SelectedStars);
             foreach (StarView star in SelectedStars)
             {
                 DestroyStar(star);
+                Stars.Remove(star);
             }
         }
         else
@@ -85,6 +89,22 @@ public class LevelManager : MonoBehaviour
         }
     }
 
+    public void ResetStars()
+    {
+        SelectedStars.Clear();
+        foreach (StarView star in Stars)
+        {
+            DestroyStar(star);
+        }
+        Stars.Clear();
+        _createStars();
+        foreach (ConstellationView cons in ConstellationViews)
+        {
+            Destroy(cons);
+        }
+        ConstellationViews.Clear();
+    }
+
     void OnStarClickAction(StarView star)
     {
         if (SelectedStars.Contains(star))
@@ -102,6 +122,35 @@ public class LevelManager : MonoBehaviour
     {
         Destroy(star.gameObject);
     }
+
+    void _createConstellation(Constellation con,List<StarView> stars)
+    {
+        var conView = Instantiate(con.ConstellationViewPrefab);
+        var pos = getCenterOfConstellation(stars);
+        conView.transform.position = new Vector3(pos.x,pos.y,0);
+        var y = conView.SpriteRenderer.bounds.size.y;
+        Debug.Log(y);
+        conView.transform.localScale = Vector3.one / y* pos.z;
+        ConstellationViews.Add(conView);
+        
+    }
+
+    Vector3 getCenterOfConstellation(List<StarView> stars)
+    {
+        var minx = stars[0].transform.position.x;
+        var maxx = stars[0].transform.position.x;
+        var miny = stars[0].transform.position.y;
+        var maxy = stars[0].transform.position.y;
+        foreach (var view in stars)
+        {
+            if (view.transform.position.x > maxx) maxx = view.transform.position.x;
+            if (view.transform.position.y > maxy) maxy = view.transform.position.y;
+            if (view.transform.position.x < minx) minx = view.transform.position.x;
+            if (view.transform.position.y < miny) miny = view.transform.position.y;
+        }
+        return new Vector3((maxx-minx)/2+ minx, (maxy-miny)/2+ miny, maxy-miny);
+    }
+
 
 
 }
