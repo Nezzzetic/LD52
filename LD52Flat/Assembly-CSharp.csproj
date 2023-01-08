@@ -57,11 +57,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Constellations.cs" />
+    <Compile Include="Assets\Scripts\ConstellationView.cs" />
     <Compile Include="Assets\Scripts\LevelManager.cs" />
+    <Compile Include="Assets\Scripts\ConstellationPanel.cs" />
     <Compile Include="Assets\Scripts\Constellation.cs" />
     <Compile Include="Assets\Scripts\StarView.cs" />
-    <Compile Include="Assets\Scripts\ConstellationView.cs" />
-    <Compile Include="Assets\Scripts\ConstellationPanel.cs" />
     <Compile Include="Assets\Scripts\ConstellationShopPanel.cs" />
   </ItemGroup>
   <ItemGroup>

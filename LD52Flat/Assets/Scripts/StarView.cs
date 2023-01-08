@@ -12,6 +12,9 @@ public class StarView : MonoBehaviour
     public Color DefaultColor;
     public Color SelectedColor;
     public Color InactiveColor;
+    public GameObject Countour;
+    public Sprite InactiveSprite;
+
     private void OnMouseDown()
     {
         OnStarClick(this);
@@ -30,16 +33,17 @@ public class StarView : MonoBehaviour
 
     public void Select()
     {
-        SpriteRenderer.color= SelectedColor;
+        Countour.SetActive(true);
     }
 
     public void Deselect()
     {
-        SpriteRenderer.color = DefaultColor;
+        Countour.SetActive(false);
     }
 
     public void Deactivate()
     {
-        SpriteRenderer.color = InactiveColor;
+        Countour.SetActive(false);
+        SpriteRenderer.sprite = InactiveSprite;
     }
 }

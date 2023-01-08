@@ -175,10 +175,14 @@ public class LevelManager : MonoBehaviour
         {
             var rndx = UnityEngine.Random.Range(0, FieldSize.x);
             var rndy = UnityEngine.Random.Range(0, FieldSize.y);
+            var rndr = UnityEngine.Random.Range(0, 360);
+            var rndsc = UnityEngine.Random.Range(0.5f, .8f);
 
             var star = Instantiate(StarPrefab);
             star.Coords = new Vector2(rndx, rndy);
             star.transform.position = new Vector3(MinPointOnScene.x + FieldDelta.x * rndx, MinPointOnScene.y + FieldDelta.y * rndy);
+            star.transform.Rotate(0, 0, rndr);
+            star.transform.localScale = Vector3.one * rndsc * rndsc;
             Stars.Add(star);
             star.OnStarClick += OnStarClickAction;
             star.Active = true;

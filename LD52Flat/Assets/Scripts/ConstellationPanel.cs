@@ -45,6 +45,7 @@ public class ConstellationPanel : MonoBehaviour
 
     public void Unblock()
     {
+        Back.enabled= true;
         Back.sprite = _constellation.ConstellationViewPrefab.SpriteRenderer.sprite;
     }
 
