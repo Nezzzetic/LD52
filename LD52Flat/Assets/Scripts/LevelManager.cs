@@ -33,10 +33,16 @@ public class LevelManager : MonoBehaviour
 
     public GameObject ButtonToHarvest;
     public GameObject ButtonToNigth;
+    public GameObject DayUI;
+    public GameObject NightUI;
     public TMP_Text PointsText;
     public List<Constellation> UsedConstel = new List<Constellation>();
 
     public Constellations ConstellationsData;
+    public Animator DayAnimator;
+
+    private float _harvestTimer;
+    private float _nightTimer;
     // Start is called before the first frame update
     void Start()
     {
@@ -50,7 +56,42 @@ public class LevelManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (_harvestTimer>0)
+        {
+            _harvestTimer-=Time.deltaTime;
+            if (_harvestTimer<=0) HarvestEnded();
+        }
+        if (_nightTimer>0)
+        {
+            _nightTimer-=Time.deltaTime;
+            if (_nightTimer<=0) NightStarted();
+        }
+    }
+    public void HarvestStart()
+    {
+        ButtonToHarvest.SetActive(false);
+        Harvest();
+        _harvestTimer=2;
+        DayAnimator.SetBool("day", true);
+    }
+    public void NightStart()
+    {
+        ResetStars();
+        DayUI.SetActive(false);
+        ButtonToNigth.SetActive(false);
+        _nightTimer = 2;
+        DayAnimator.SetBool("day", false);
+    }
+    public void HarvestEnded()
+    {
+        NightUI.SetActive(false);
+        DayUI.SetActive(true);
+        ButtonToNigth.SetActive(true);
+    }
+
+    public void NightStarted()
+    {
+        NightUI.SetActive(true);
     }
     public void CheckAndMoveButton()
     {
@@ -188,7 +229,6 @@ public class LevelManager : MonoBehaviour
             star.Active = true;
         }
         ButtonToHarvest.SetActive(true);
-        ButtonToNigth.SetActive(false);
     }
 
     public void Harvest()
@@ -212,8 +252,7 @@ public class LevelManager : MonoBehaviour
         }
         ConstellationViews.Clear();
         UsedConstel.Clear();
-        ButtonToHarvest.SetActive(false);
-        ButtonToNigth.SetActive(true);
+        
         ChangePoints(harvested);
     }
 
@@ -241,7 +280,8 @@ public class LevelManager : MonoBehaviour
 
     void DestroyStar(StarView star)
     {
-        Destroy(star.gameObject);
+        Destroy(star.gameObject,2);
+        star.Dissapear();
     }
 
     void DeactStar(StarView star)
