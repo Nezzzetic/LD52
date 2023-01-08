@@ -7,10 +7,13 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using static UnityEditor.PlayerSettings;
+using static UnityEngine.GraphicsBuffer;
 
 public class LevelManager : MonoBehaviour
 {
     public StarView StarPrefab;
+    public FlyStar FlyStarPrefab;
+    public Transform FlyStarPrefabParent;
     public ConstellationPanel ConstellationPanelPrefab;
     public ConstellationShopPanel ConstellationShopPanelPrefab;
     public Transform ConstellationPanelParent;
@@ -72,18 +75,19 @@ public class LevelManager : MonoBehaviour
         ButtonToHarvest.SetActive(false);
         Harvest();
         _harvestTimer=2;
-        DayAnimator.SetBool("day", true);
+        
     }
     public void NightStart()
     {
         ResetStars();
         DayUI.SetActive(false);
         ButtonToNigth.SetActive(false);
-        _nightTimer = 2;
+        _nightTimer = 3;
         DayAnimator.SetBool("day", false);
     }
     public void HarvestEnded()
     {
+        DayAnimator.SetBool("day", true);
         NightUI.SetActive(false);
         DayUI.SetActive(true);
         ButtonToNigth.SetActive(true);
@@ -237,7 +241,9 @@ public class LevelManager : MonoBehaviour
         SelectedStars.Clear();
         foreach (StarView star in Stars)
         {
-            if (!star.Active) harvested++;
+            if (!star.Active) { harvested++;
+                CreateFlyText(star.transform);
+            }
             DestroyStar(star);
         }
         Stars.Clear();
@@ -246,9 +252,9 @@ public class LevelManager : MonoBehaviour
             if (cons.Constellation.State == 2)
             {
                 cons.Constellation.State ++;
-                ChangePoints(NewConstelPoints);
             }
-            Destroy(cons.gameObject);
+            cons.Dissapear();
+            Destroy(cons.gameObject, 2);
         }
         ConstellationViews.Clear();
         UsedConstel.Clear();
@@ -280,7 +286,7 @@ public class LevelManager : MonoBehaviour
 
     void DestroyStar(StarView star)
     {
-        Destroy(star.gameObject,2);
+        Destroy(star.gameObject,1);
         star.Dissapear();
     }
 
@@ -387,6 +393,14 @@ public class LevelManager : MonoBehaviour
     public void UnblockPanel(ConstellationPanel panel)
     {
         panel.Unblock();
+    }
+
+    public void CreateFlyText(Transform target)
+    {
+        Vector3 screenPos = Camera.main.WorldToScreenPoint(target.position);
+        var fly = Instantiate(FlyStarPrefab, FlyStarPrefabParent);
+        fly.transform.position = screenPos;
+        Destroy(fly.gameObject,2);
     }
 
 }
