@@ -25,11 +25,18 @@ public class ConstellationPanel : MonoBehaviour
     public void Init(Constellation cons)
     {
         _constellation=cons;
+        var mod = 0f;
+
+        foreach (Vector2 pos in cons.starPattern)
+        {
+            if (pos.x < mod) mod = pos.x;
+        }
+
         foreach (Vector2 pos in cons.starPattern)
         {
             var star = Instantiate(MinistarsPrefab, StarsParent);
             Debug.Log(pos);
-            var x = pos.x / 5;
+            var x = (pos.x - mod) / 5;
             var y = pos.y / 5;
             var multy = 1f;
             if (x>200)

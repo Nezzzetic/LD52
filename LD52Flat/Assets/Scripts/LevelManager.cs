@@ -286,7 +286,7 @@ public class LevelManager : MonoBehaviour
 
     void DestroyStar(StarView star)
     {
-        Destroy(star.gameObject,1);
+        Destroy(star.gameObject,2);
         star.Dissapear();
     }
 
