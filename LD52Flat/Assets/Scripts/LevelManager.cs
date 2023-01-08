@@ -43,6 +43,8 @@ public class LevelManager : MonoBehaviour
 
     public Constellations ConstellationsData;
     public Animator DayAnimator;
+    public GameObject WinScreen;
+    public bool WinScreenShowed;
 
     private float _harvestTimer;
     private float _nightTimer;
@@ -53,8 +55,21 @@ public class LevelManager : MonoBehaviour
         FieldDelta = new Vector2((MaxPointOnScene.x - MinPointOnScene.x) / FieldSize.x, (MaxPointOnScene.y - MinPointOnScene.y) / FieldSize.y);
         ButtonToCreate.SetActive(false);
         ChangePoints(0);
+        _createStarsStart();
+        DayUI.SetActive(false);
+        ButtonToNigth.SetActive(false);
+        _nightTimer = 3;
+        WinScreenShowed = false;
     }
 
+    public void ShowWinScreen()
+    {
+        if (!WinScreenShowed)
+        {
+            WinScreenShowed = true;
+            WinScreen.SetActive(true);
+        }
+    }
 
     // Update is called once per frame
     void Update()
@@ -84,6 +99,11 @@ public class LevelManager : MonoBehaviour
         ButtonToNigth.SetActive(false);
         _nightTimer = 3;
         DayAnimator.SetBool("day", false);
+        foreach (var item in ConstellationPanels)
+        {
+            item.Undone();
+        }
+        
     }
     public void HarvestEnded()
     {
@@ -172,6 +192,7 @@ public class LevelManager : MonoBehaviour
                 constel.State++;
                 constel.CreateAction();
                 var starsInsideZone = _findAllStarsInside(SelectedStars);
+                ButtonToHarvest.SetActive(true);
                 foreach (StarView star in starsInsideZone)
                 {
                     DeactStar(star);
@@ -232,7 +253,35 @@ public class LevelManager : MonoBehaviour
             star.OnStarClick += OnStarClickAction;
             star.Active = true;
         }
-        ButtonToHarvest.SetActive(true);
+    }
+
+    void _createStarsStart()
+    {
+        
+            var rndx = 600;
+            var rndy = 400;
+            var rndr = UnityEngine.Random.Range(0, 360);
+
+            var star = Instantiate(StarPrefab);
+            star.Coords = new Vector2(rndx, rndy);
+            star.transform.position = new Vector3(MinPointOnScene.x + FieldDelta.x * rndx, MinPointOnScene.y + FieldDelta.y * rndy);
+            star.transform.Rotate(0, 0, rndr);
+            Stars.Add(star);
+            star.OnStarClick += OnStarClickAction;
+            star.Active = true;
+
+         rndx = 800;
+         rndy = 600;
+         rndr = UnityEngine.Random.Range(0, 360);
+
+        var star2 = Instantiate(StarPrefab);
+        star2.Coords = new Vector2(rndx, rndy);
+        star2.transform.position = new Vector3(MinPointOnScene.x + FieldDelta.x * rndx, MinPointOnScene.y + FieldDelta.y * rndy);
+        star2.transform.Rotate(0, 0, rndr);
+        Stars.Add(star2);
+        star2.OnStarClick += OnStarClickAction;
+        star2.Active = true;
+
     }
 
     public void Harvest()
@@ -371,7 +420,7 @@ public class LevelManager : MonoBehaviour
         Points += delta;
         PointsText.text=Points.ToString();
     }
-
+    private int shopCounter = 13;
     public void ShopPanelClick(ConstellationShopPanel shopPanel)
     {
         if (shopPanel.Constellation.Cost > Points) return;
@@ -379,12 +428,18 @@ public class LevelManager : MonoBehaviour
         shopPanel.Constellation.State++;
         shopPanel.Solded();
         var panel = CreatePanel(shopPanel.Constellation);
+        shopCounter--;
+        if (shopCounter==0)
+        {
+            ShowWinScreen();
+        }
     }
 
     public ConstellationPanel CreatePanel(Constellation constellation)
     {
             var panel = Instantiate(ConstellationPanelPrefab, ConstellationPanelParent);
             panel.Init(constellation);
+        ConstellationPanels.Add(panel);
         constellation.CreateAction += delegate { UnblockPanel(panel); };
         return panel;
     }

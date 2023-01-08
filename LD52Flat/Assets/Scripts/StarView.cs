@@ -19,7 +19,7 @@ public class StarView : MonoBehaviour
     private float shineTimer;
     private float nextShineTimer;
 
-    private void OnMouseDown()
+    private void OnMouseUp()
     {
         OnStarClick(this);
     }

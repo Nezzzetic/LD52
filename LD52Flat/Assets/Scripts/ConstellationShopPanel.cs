@@ -20,9 +20,9 @@ public class ConstellationShopPanel : MonoBehaviour
         TitleText.text = constellation.Name;
         CostText.text = constellation.Cost.ToString();
         CountText.text = constellation.starPattern.Length + " stars";
-        if (constellation.Size == 0) SizeText.text = "S";
-        else if (constellation.Size == 1) SizeText.text = "M";
-        else if (constellation.Size == 2) SizeText.text = "L";
+        if (constellation.Size == 0) SizeText.text = "Size: S";
+        else if (constellation.Size == 1) SizeText.text = "Size: M";
+        else if (constellation.Size == 2) SizeText.text = "Size: L";
         Sold.SetActive(false);
         Constellation = constellation;
         if (constellation.State > 0) Solded();

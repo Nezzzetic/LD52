@@ -20,6 +20,8 @@ public class Constellation
     public ConstellationView ConstellationViewPrefab;
     [SerializeField]
     public int State;
+    [SerializeField]
+    public Sprite PanelSprite;
 
     public Action CreateAction = delegate { };
 
@@ -30,6 +32,7 @@ public class Constellation
         constel.Cost = source.Cost;
         constel.Size = source.Size;
         constel.State = source.State;
+        constel.PanelSprite = source.PanelSprite;
         constel.starPattern = new Vector2[source.starPattern.Length];
         constel.ConstellationViewPrefab=source.ConstellationViewPrefab;
         var ymax = source.starPattern[0].y;
@@ -83,6 +86,7 @@ public class Constellation
         var constellationsResult = new List<Constellation>();
         foreach (Constellation c in ConstellationList)
         {
+            if (c.State == 0) continue;
             if (c.starPattern.Length != translatedCoords.Length) continue;
             var usedStars = new List<int>();
 
