@@ -1303,7 +1303,7 @@ MonoBehaviour:
   SelectedStars: []
   ConstellationViews: []
   ConstellationPanels: []
-  accuracy: 500
+  accuracy: 200
   MinPointOnScene: {x: -8, y: -4}
   MaxPointOnScene: {x: 6, y: 4}
   FieldSize: {x: 1750, y: 1000}
@@ -1880,7 +1880,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3169802135989917675, guid: 55dd970b59337974eb260e57d0c39008, type: 3}
       propertyPath: ConstellationList.Array.size
-      value: 15
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 3169802135989917675, guid: 55dd970b59337974eb260e57d0c39008, type: 3}
       propertyPath: ConstellationList.Array.data[0].Cost
@@ -1899,12 +1899,20 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3169802135989917675, guid: 55dd970b59337974eb260e57d0c39008, type: 3}
+      propertyPath: ConstellationList.Array.data[2].Name
+      value: Libra
+      objectReference: {fileID: 0}
+    - target: {fileID: 3169802135989917675, guid: 55dd970b59337974eb260e57d0c39008, type: 3}
+      propertyPath: ConstellationList.Array.data[2].Size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3169802135989917675, guid: 55dd970b59337974eb260e57d0c39008, type: 3}
       propertyPath: ConstellationList.Array.data[3].Cost
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3169802135989917675, guid: 55dd970b59337974eb260e57d0c39008, type: 3}
       propertyPath: ConstellationList.Array.data[3].Name
-      value: Libra
+      value: Gemini
       objectReference: {fileID: 0}
     - target: {fileID: 3169802135989917675, guid: 55dd970b59337974eb260e57d0c39008, type: 3}
       propertyPath: ConstellationList.Array.data[3].Size
@@ -1916,7 +1924,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3169802135989917675, guid: 55dd970b59337974eb260e57d0c39008, type: 3}
       propertyPath: ConstellationList.Array.data[4].Name
-      value: Gemini
+      value: Capricornus
       objectReference: {fileID: 0}
     - target: {fileID: 3169802135989917675, guid: 55dd970b59337974eb260e57d0c39008, type: 3}
       propertyPath: ConstellationList.Array.data[4].Size
@@ -1928,7 +1936,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3169802135989917675, guid: 55dd970b59337974eb260e57d0c39008, type: 3}
       propertyPath: ConstellationList.Array.data[5].Name
-      value: Capricornus
+      value: Cancer
       objectReference: {fileID: 0}
     - target: {fileID: 3169802135989917675, guid: 55dd970b59337974eb260e57d0c39008, type: 3}
       propertyPath: ConstellationList.Array.data[5].Size
@@ -1940,7 +1948,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3169802135989917675, guid: 55dd970b59337974eb260e57d0c39008, type: 3}
       propertyPath: ConstellationList.Array.data[6].Name
-      value: Cancer
+      value: Leo
       objectReference: {fileID: 0}
     - target: {fileID: 3169802135989917675, guid: 55dd970b59337974eb260e57d0c39008, type: 3}
       propertyPath: ConstellationList.Array.data[6].Size
@@ -1952,7 +1960,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3169802135989917675, guid: 55dd970b59337974eb260e57d0c39008, type: 3}
       propertyPath: ConstellationList.Array.data[7].Name
-      value: Leo
+      value: Pisces
       objectReference: {fileID: 0}
     - target: {fileID: 3169802135989917675, guid: 55dd970b59337974eb260e57d0c39008, type: 3}
       propertyPath: ConstellationList.Array.data[7].Size
@@ -1964,7 +1972,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3169802135989917675, guid: 55dd970b59337974eb260e57d0c39008, type: 3}
       propertyPath: ConstellationList.Array.data[8].Name
-      value: Pisces
+      value: Scorpio
       objectReference: {fileID: 0}
     - target: {fileID: 3169802135989917675, guid: 55dd970b59337974eb260e57d0c39008, type: 3}
       propertyPath: ConstellationList.Array.data[8].Size
@@ -1976,7 +1984,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3169802135989917675, guid: 55dd970b59337974eb260e57d0c39008, type: 3}
       propertyPath: ConstellationList.Array.data[9].Name
-      value: Scorpio
+      value: Sagittarius
       objectReference: {fileID: 0}
     - target: {fileID: 3169802135989917675, guid: 55dd970b59337974eb260e57d0c39008, type: 3}
       propertyPath: ConstellationList.Array.data[9].Size
@@ -1992,7 +2000,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3169802135989917675, guid: 55dd970b59337974eb260e57d0c39008, type: 3}
       propertyPath: ConstellationList.Array.data[10].Name
-      value: Sagittarius
+      value: Virgo
       objectReference: {fileID: 0}
     - target: {fileID: 3169802135989917675, guid: 55dd970b59337974eb260e57d0c39008, type: 3}
       propertyPath: ConstellationList.Array.data[10].Size
@@ -2004,7 +2012,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3169802135989917675, guid: 55dd970b59337974eb260e57d0c39008, type: 3}
       propertyPath: ConstellationList.Array.data[11].Name
-      value: Virgo
+      value: Taurus
       objectReference: {fileID: 0}
     - target: {fileID: 3169802135989917675, guid: 55dd970b59337974eb260e57d0c39008, type: 3}
       propertyPath: ConstellationList.Array.data[11].Size
@@ -2016,7 +2024,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3169802135989917675, guid: 55dd970b59337974eb260e57d0c39008, type: 3}
       propertyPath: ConstellationList.Array.data[12].Name
-      value: Taurus
+      value: Aquarius
       objectReference: {fileID: 0}
     - target: {fileID: 3169802135989917675, guid: 55dd970b59337974eb260e57d0c39008, type: 3}
       propertyPath: ConstellationList.Array.data[12].Size
@@ -2028,7 +2036,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3169802135989917675, guid: 55dd970b59337974eb260e57d0c39008, type: 3}
       propertyPath: ConstellationList.Array.data[13].Name
-      value: Aquarius
+      value: Aries
       objectReference: {fileID: 0}
     - target: {fileID: 3169802135989917675, guid: 55dd970b59337974eb260e57d0c39008, type: 3}
       propertyPath: ConstellationList.Array.data[13].Size
@@ -2047,6 +2055,10 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3169802135989917675, guid: 55dd970b59337974eb260e57d0c39008, type: 3}
+      propertyPath: ConstellationList.Array.data[2].starPattern.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3169802135989917675, guid: 55dd970b59337974eb260e57d0c39008, type: 3}
       propertyPath: ConstellationList.Array.data[3].starPattern.Array.size
       value: 4
       objectReference: {fileID: 0}
@@ -2060,15 +2072,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3169802135989917675, guid: 55dd970b59337974eb260e57d0c39008, type: 3}
       propertyPath: ConstellationList.Array.data[6].starPattern.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 3169802135989917675, guid: 55dd970b59337974eb260e57d0c39008, type: 3}
-      propertyPath: ConstellationList.Array.data[7].starPattern.Array.size
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3169802135989917675, guid: 55dd970b59337974eb260e57d0c39008, type: 3}
-      propertyPath: ConstellationList.Array.data[8].starPattern.Array.size
+      propertyPath: ConstellationList.Array.data[7].starPattern.Array.size
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3169802135989917675, guid: 55dd970b59337974eb260e57d0c39008, type: 3}
+      propertyPath: ConstellationList.Array.data[8].starPattern.Array.size
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3169802135989917675, guid: 55dd970b59337974eb260e57d0c39008, type: 3}
       propertyPath: ConstellationList.Array.data[9].starPattern.Array.size
@@ -2080,159 +2092,191 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3169802135989917675, guid: 55dd970b59337974eb260e57d0c39008, type: 3}
       propertyPath: ConstellationList.Array.data[11].starPattern.Array.size
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3169802135989917675, guid: 55dd970b59337974eb260e57d0c39008, type: 3}
-      propertyPath: ConstellationList.Array.data[12].starPattern.Array.size
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3169802135989917675, guid: 55dd970b59337974eb260e57d0c39008, type: 3}
-      propertyPath: ConstellationList.Array.data[13].starPattern.Array.size
+      propertyPath: ConstellationList.Array.data[12].starPattern.Array.size
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3169802135989917675, guid: 55dd970b59337974eb260e57d0c39008, type: 3}
+      propertyPath: ConstellationList.Array.data[13].starPattern.Array.size
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 3169802135989917675, guid: 55dd970b59337974eb260e57d0c39008, type: 3}
       propertyPath: ConstellationList.Array.data[14].starPattern.Array.size
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 3169802135989917675, guid: 55dd970b59337974eb260e57d0c39008, type: 3}
-      propertyPath: ConstellationList.Array.data[3].ConstellationViewPrefab
+      propertyPath: ConstellationList.Array.data[2].ConstellationViewPrefab
       value: 
       objectReference: {fileID: 5039132153959007368, guid: c3125b6a32528d644880467ec758f285, type: 3}
     - target: {fileID: 3169802135989917675, guid: 55dd970b59337974eb260e57d0c39008, type: 3}
-      propertyPath: ConstellationList.Array.data[4].ConstellationViewPrefab
+      propertyPath: ConstellationList.Array.data[3].ConstellationViewPrefab
       value: 
       objectReference: {fileID: 5039132153959007368, guid: 6fb2550f366b9904fb8c9d4168907fc9, type: 3}
     - target: {fileID: 3169802135989917675, guid: 55dd970b59337974eb260e57d0c39008, type: 3}
-      propertyPath: ConstellationList.Array.data[5].ConstellationViewPrefab
+      propertyPath: ConstellationList.Array.data[4].ConstellationViewPrefab
       value: 
       objectReference: {fileID: 5039132153959007368, guid: 54af5bf9fa624eb449a5237a02c65e70, type: 3}
     - target: {fileID: 3169802135989917675, guid: 55dd970b59337974eb260e57d0c39008, type: 3}
-      propertyPath: ConstellationList.Array.data[6].ConstellationViewPrefab
+      propertyPath: ConstellationList.Array.data[5].ConstellationViewPrefab
       value: 
       objectReference: {fileID: 5039132153959007368, guid: 590e8ac40b2d8f14987c5d763cada84d, type: 3}
     - target: {fileID: 3169802135989917675, guid: 55dd970b59337974eb260e57d0c39008, type: 3}
-      propertyPath: ConstellationList.Array.data[7].ConstellationViewPrefab
+      propertyPath: ConstellationList.Array.data[6].ConstellationViewPrefab
       value: 
       objectReference: {fileID: 5039132153959007368, guid: 55fdb1d50a1cc844ebf29cc64f8d4ca9, type: 3}
     - target: {fileID: 3169802135989917675, guid: 55dd970b59337974eb260e57d0c39008, type: 3}
-      propertyPath: ConstellationList.Array.data[8].ConstellationViewPrefab
+      propertyPath: ConstellationList.Array.data[7].ConstellationViewPrefab
       value: 
       objectReference: {fileID: 5039132153959007368, guid: 63b6426425c7aa944a48c1fa9dea25a1, type: 3}
     - target: {fileID: 3169802135989917675, guid: 55dd970b59337974eb260e57d0c39008, type: 3}
-      propertyPath: ConstellationList.Array.data[9].ConstellationViewPrefab
+      propertyPath: ConstellationList.Array.data[8].ConstellationViewPrefab
       value: 
       objectReference: {fileID: 5039132153959007368, guid: 94269d7833db577418a556c45565b2cf, type: 3}
     - target: {fileID: 3169802135989917675, guid: 55dd970b59337974eb260e57d0c39008, type: 3}
-      propertyPath: ConstellationList.Array.data[10].ConstellationViewPrefab
+      propertyPath: ConstellationList.Array.data[9].ConstellationViewPrefab
       value: 
       objectReference: {fileID: 5039132153959007368, guid: 4c98f09fab7a9bc47942050080e94bf2, type: 3}
     - target: {fileID: 3169802135989917675, guid: 55dd970b59337974eb260e57d0c39008, type: 3}
-      propertyPath: ConstellationList.Array.data[11].ConstellationViewPrefab
+      propertyPath: ConstellationList.Array.data[10].ConstellationViewPrefab
       value: 
       objectReference: {fileID: 5039132153959007368, guid: 5e27dcae6f022ab40a79c1c2e9a2fb98, type: 3}
     - target: {fileID: 3169802135989917675, guid: 55dd970b59337974eb260e57d0c39008, type: 3}
-      propertyPath: ConstellationList.Array.data[12].ConstellationViewPrefab
+      propertyPath: ConstellationList.Array.data[11].ConstellationViewPrefab
       value: 
       objectReference: {fileID: 5039132153959007368, guid: c10c00eef7895b54fadec825fe777202, type: 3}
     - target: {fileID: 3169802135989917675, guid: 55dd970b59337974eb260e57d0c39008, type: 3}
-      propertyPath: ConstellationList.Array.data[13].ConstellationViewPrefab
+      propertyPath: ConstellationList.Array.data[12].ConstellationViewPrefab
       value: 
       objectReference: {fileID: 5039132153959007368, guid: 0409fe1afcda8c2438fe89b2f2b66a5d, type: 3}
+    - target: {fileID: 3169802135989917675, guid: 55dd970b59337974eb260e57d0c39008, type: 3}
+      propertyPath: ConstellationList.Array.data[13].ConstellationViewPrefab
+      value: 
+      objectReference: {fileID: 5039132153959007368, guid: 4207842adb785744893089d2ed625dcc, type: 3}
     - target: {fileID: 3169802135989917675, guid: 55dd970b59337974eb260e57d0c39008, type: 3}
       propertyPath: ConstellationList.Array.data[14].ConstellationViewPrefab
       value: 
       objectReference: {fileID: 5039132153959007368, guid: 4207842adb785744893089d2ed625dcc, type: 3}
+    - target: {fileID: 3169802135989917675, guid: 55dd970b59337974eb260e57d0c39008, type: 3}
+      propertyPath: ConstellationList.Array.data[2].starPattern.Array.data[1].x
+      value: -180
+      objectReference: {fileID: 0}
+    - target: {fileID: 3169802135989917675, guid: 55dd970b59337974eb260e57d0c39008, type: 3}
+      propertyPath: ConstellationList.Array.data[2].starPattern.Array.data[1].y
+      value: 252
+      objectReference: {fileID: 0}
+    - target: {fileID: 3169802135989917675, guid: 55dd970b59337974eb260e57d0c39008, type: 3}
+      propertyPath: ConstellationList.Array.data[2].starPattern.Array.data[2].x
+      value: 81
+      objectReference: {fileID: 0}
+    - target: {fileID: 3169802135989917675, guid: 55dd970b59337974eb260e57d0c39008, type: 3}
+      propertyPath: ConstellationList.Array.data[2].starPattern.Array.data[2].y
+      value: 222
+      objectReference: {fileID: 0}
+    - target: {fileID: 3169802135989917675, guid: 55dd970b59337974eb260e57d0c39008, type: 3}
+      propertyPath: ConstellationList.Array.data[2].starPattern.Array.data[3].x
+      value: -73
+      objectReference: {fileID: 0}
+    - target: {fileID: 3169802135989917675, guid: 55dd970b59337974eb260e57d0c39008, type: 3}
+      propertyPath: ConstellationList.Array.data[2].starPattern.Array.data[3].y
+      value: 386
+      objectReference: {fileID: 0}
     - target: {fileID: 3169802135989917675, guid: 55dd970b59337974eb260e57d0c39008, type: 3}
       propertyPath: ConstellationList.Array.data[3].starPattern.Array.data[0].x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3169802135989917675, guid: 55dd970b59337974eb260e57d0c39008, type: 3}
       propertyPath: ConstellationList.Array.data[3].starPattern.Array.data[1].x
-      value: -180
-      objectReference: {fileID: 0}
-    - target: {fileID: 3169802135989917675, guid: 55dd970b59337974eb260e57d0c39008, type: 3}
-      propertyPath: ConstellationList.Array.data[3].starPattern.Array.data[1].y
-      value: 252
-      objectReference: {fileID: 0}
-    - target: {fileID: 3169802135989917675, guid: 55dd970b59337974eb260e57d0c39008, type: 3}
-      propertyPath: ConstellationList.Array.data[3].starPattern.Array.data[2].x
-      value: 81
-      objectReference: {fileID: 0}
-    - target: {fileID: 3169802135989917675, guid: 55dd970b59337974eb260e57d0c39008, type: 3}
-      propertyPath: ConstellationList.Array.data[3].starPattern.Array.data[2].y
-      value: 222
-      objectReference: {fileID: 0}
-    - target: {fileID: 3169802135989917675, guid: 55dd970b59337974eb260e57d0c39008, type: 3}
-      propertyPath: ConstellationList.Array.data[3].starPattern.Array.data[3].x
-      value: -73
-      objectReference: {fileID: 0}
-    - target: {fileID: 3169802135989917675, guid: 55dd970b59337974eb260e57d0c39008, type: 3}
-      propertyPath: ConstellationList.Array.data[3].starPattern.Array.data[3].y
-      value: 386
-      objectReference: {fileID: 0}
-    - target: {fileID: 3169802135989917675, guid: 55dd970b59337974eb260e57d0c39008, type: 3}
-      propertyPath: ConstellationList.Array.data[4].starPattern.Array.data[0].x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3169802135989917675, guid: 55dd970b59337974eb260e57d0c39008, type: 3}
-      propertyPath: ConstellationList.Array.data[4].starPattern.Array.data[1].x
       value: -400
       objectReference: {fileID: 0}
     - target: {fileID: 3169802135989917675, guid: 55dd970b59337974eb260e57d0c39008, type: 3}
-      propertyPath: ConstellationList.Array.data[4].starPattern.Array.data[1].y
+      propertyPath: ConstellationList.Array.data[3].starPattern.Array.data[1].y
       value: 300
       objectReference: {fileID: 0}
     - target: {fileID: 3169802135989917675, guid: 55dd970b59337974eb260e57d0c39008, type: 3}
-      propertyPath: ConstellationList.Array.data[4].starPattern.Array.data[2].x
+      propertyPath: ConstellationList.Array.data[3].starPattern.Array.data[2].x
       value: -334
       objectReference: {fileID: 0}
     - target: {fileID: 3169802135989917675, guid: 55dd970b59337974eb260e57d0c39008, type: 3}
-      propertyPath: ConstellationList.Array.data[4].starPattern.Array.data[2].y
+      propertyPath: ConstellationList.Array.data[3].starPattern.Array.data[2].y
       value: 404
       objectReference: {fileID: 0}
     - target: {fileID: 3169802135989917675, guid: 55dd970b59337974eb260e57d0c39008, type: 3}
-      propertyPath: ConstellationList.Array.data[4].starPattern.Array.data[3].x
+      propertyPath: ConstellationList.Array.data[3].starPattern.Array.data[3].x
       value: 74
       objectReference: {fileID: 0}
     - target: {fileID: 3169802135989917675, guid: 55dd970b59337974eb260e57d0c39008, type: 3}
-      propertyPath: ConstellationList.Array.data[4].starPattern.Array.data[3].y
+      propertyPath: ConstellationList.Array.data[3].starPattern.Array.data[3].y
       value: 163
       objectReference: {fileID: 0}
     - target: {fileID: 3169802135989917675, guid: 55dd970b59337974eb260e57d0c39008, type: 3}
-      propertyPath: ConstellationList.Array.data[5].starPattern.Array.data[0].x
+      propertyPath: ConstellationList.Array.data[4].starPattern.Array.data[0].x
       value: 333
       objectReference: {fileID: 0}
     - target: {fileID: 3169802135989917675, guid: 55dd970b59337974eb260e57d0c39008, type: 3}
-      propertyPath: ConstellationList.Array.data[5].starPattern.Array.data[1].x
+      propertyPath: ConstellationList.Array.data[4].starPattern.Array.data[1].x
       value: -333
       objectReference: {fileID: 0}
     - target: {fileID: 3169802135989917675, guid: 55dd970b59337974eb260e57d0c39008, type: 3}
-      propertyPath: ConstellationList.Array.data[5].starPattern.Array.data[1].y
+      propertyPath: ConstellationList.Array.data[4].starPattern.Array.data[1].y
       value: 270
       objectReference: {fileID: 0}
     - target: {fileID: 3169802135989917675, guid: 55dd970b59337974eb260e57d0c39008, type: 3}
-      propertyPath: ConstellationList.Array.data[5].starPattern.Array.data[2].x
+      propertyPath: ConstellationList.Array.data[4].starPattern.Array.data[2].x
       value: -83
       objectReference: {fileID: 0}
     - target: {fileID: 3169802135989917675, guid: 55dd970b59337974eb260e57d0c39008, type: 3}
-      propertyPath: ConstellationList.Array.data[5].starPattern.Array.data[2].y
+      propertyPath: ConstellationList.Array.data[4].starPattern.Array.data[2].y
       value: 250
       objectReference: {fileID: 0}
     - target: {fileID: 3169802135989917675, guid: 55dd970b59337974eb260e57d0c39008, type: 3}
-      propertyPath: ConstellationList.Array.data[5].starPattern.Array.data[3].x
+      propertyPath: ConstellationList.Array.data[4].starPattern.Array.data[3].x
       value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 3169802135989917675, guid: 55dd970b59337974eb260e57d0c39008, type: 3}
-      propertyPath: ConstellationList.Array.data[5].starPattern.Array.data[3].y
+      propertyPath: ConstellationList.Array.data[4].starPattern.Array.data[3].y
       value: 303
       objectReference: {fileID: 0}
     - target: {fileID: 3169802135989917675, guid: 55dd970b59337974eb260e57d0c39008, type: 3}
-      propertyPath: ConstellationList.Array.data[6].starPattern.Array.data[0].x
+      propertyPath: ConstellationList.Array.data[5].starPattern.Array.data[0].x
       value: -233
       objectReference: {fileID: 0}
     - target: {fileID: 3169802135989917675, guid: 55dd970b59337974eb260e57d0c39008, type: 3}
-      propertyPath: ConstellationList.Array.data[6].starPattern.Array.data[0].y
+      propertyPath: ConstellationList.Array.data[5].starPattern.Array.data[0].y
       value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 3169802135989917675, guid: 55dd970b59337974eb260e57d0c39008, type: 3}
+      propertyPath: ConstellationList.Array.data[5].starPattern.Array.data[1].x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3169802135989917675, guid: 55dd970b59337974eb260e57d0c39008, type: 3}
+      propertyPath: ConstellationList.Array.data[5].starPattern.Array.data[1].y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3169802135989917675, guid: 55dd970b59337974eb260e57d0c39008, type: 3}
+      propertyPath: ConstellationList.Array.data[5].starPattern.Array.data[2].x
+      value: -156
+      objectReference: {fileID: 0}
+    - target: {fileID: 3169802135989917675, guid: 55dd970b59337974eb260e57d0c39008, type: 3}
+      propertyPath: ConstellationList.Array.data[5].starPattern.Array.data[2].y
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 3169802135989917675, guid: 55dd970b59337974eb260e57d0c39008, type: 3}
+      propertyPath: ConstellationList.Array.data[5].starPattern.Array.data[3].x
+      value: -165
+      objectReference: {fileID: 0}
+    - target: {fileID: 3169802135989917675, guid: 55dd970b59337974eb260e57d0c39008, type: 3}
+      propertyPath: ConstellationList.Array.data[5].starPattern.Array.data[3].y
+      value: 439
+      objectReference: {fileID: 0}
+    - target: {fileID: 3169802135989917675, guid: 55dd970b59337974eb260e57d0c39008, type: 3}
+      propertyPath: ConstellationList.Array.data[6].starPattern.Array.data[0].x
+      value: -555
+      objectReference: {fileID: 0}
+    - target: {fileID: 3169802135989917675, guid: 55dd970b59337974eb260e57d0c39008, type: 3}
+      propertyPath: ConstellationList.Array.data[6].starPattern.Array.data[0].y
+      value: 68
       objectReference: {fileID: 0}
     - target: {fileID: 3169802135989917675, guid: 55dd970b59337974eb260e57d0c39008, type: 3}
       propertyPath: ConstellationList.Array.data[6].starPattern.Array.data[1].x
@@ -2244,55 +2288,75 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3169802135989917675, guid: 55dd970b59337974eb260e57d0c39008, type: 3}
       propertyPath: ConstellationList.Array.data[6].starPattern.Array.data[2].x
-      value: -156
-      objectReference: {fileID: 0}
-    - target: {fileID: 3169802135989917675, guid: 55dd970b59337974eb260e57d0c39008, type: 3}
-      propertyPath: ConstellationList.Array.data[6].starPattern.Array.data[2].y
-      value: 200
-      objectReference: {fileID: 0}
-    - target: {fileID: 3169802135989917675, guid: 55dd970b59337974eb260e57d0c39008, type: 3}
-      propertyPath: ConstellationList.Array.data[6].starPattern.Array.data[3].x
-      value: -165
-      objectReference: {fileID: 0}
-    - target: {fileID: 3169802135989917675, guid: 55dd970b59337974eb260e57d0c39008, type: 3}
-      propertyPath: ConstellationList.Array.data[6].starPattern.Array.data[3].y
-      value: 439
-      objectReference: {fileID: 0}
-    - target: {fileID: 3169802135989917675, guid: 55dd970b59337974eb260e57d0c39008, type: 3}
-      propertyPath: ConstellationList.Array.data[7].starPattern.Array.data[0].x
-      value: -555
-      objectReference: {fileID: 0}
-    - target: {fileID: 3169802135989917675, guid: 55dd970b59337974eb260e57d0c39008, type: 3}
-      propertyPath: ConstellationList.Array.data[7].starPattern.Array.data[0].y
-      value: 68
-      objectReference: {fileID: 0}
-    - target: {fileID: 3169802135989917675, guid: 55dd970b59337974eb260e57d0c39008, type: 3}
-      propertyPath: ConstellationList.Array.data[7].starPattern.Array.data[1].x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3169802135989917675, guid: 55dd970b59337974eb260e57d0c39008, type: 3}
-      propertyPath: ConstellationList.Array.data[7].starPattern.Array.data[2].x
       value: -358
       objectReference: {fileID: 0}
     - target: {fileID: 3169802135989917675, guid: 55dd970b59337974eb260e57d0c39008, type: 3}
-      propertyPath: ConstellationList.Array.data[7].starPattern.Array.data[2].y
+      propertyPath: ConstellationList.Array.data[6].starPattern.Array.data[2].y
       value: 197
       objectReference: {fileID: 0}
     - target: {fileID: 3169802135989917675, guid: 55dd970b59337974eb260e57d0c39008, type: 3}
-      propertyPath: ConstellationList.Array.data[7].starPattern.Array.data[3].x
+      propertyPath: ConstellationList.Array.data[6].starPattern.Array.data[3].x
       value: -69
       objectReference: {fileID: 0}
     - target: {fileID: 3169802135989917675, guid: 55dd970b59337974eb260e57d0c39008, type: 3}
-      propertyPath: ConstellationList.Array.data[7].starPattern.Array.data[3].y
+      propertyPath: ConstellationList.Array.data[6].starPattern.Array.data[3].y
       value: 176
       objectReference: {fileID: 0}
     - target: {fileID: 3169802135989917675, guid: 55dd970b59337974eb260e57d0c39008, type: 3}
-      propertyPath: ConstellationList.Array.data[7].starPattern.Array.data[4].x
+      propertyPath: ConstellationList.Array.data[6].starPattern.Array.data[4].x
       value: 109
       objectReference: {fileID: 0}
     - target: {fileID: 3169802135989917675, guid: 55dd970b59337974eb260e57d0c39008, type: 3}
-      propertyPath: ConstellationList.Array.data[7].starPattern.Array.data[4].y
+      propertyPath: ConstellationList.Array.data[6].starPattern.Array.data[4].y
       value: 275
+      objectReference: {fileID: 0}
+    - target: {fileID: 3169802135989917675, guid: 55dd970b59337974eb260e57d0c39008, type: 3}
+      propertyPath: ConstellationList.Array.data[7].starPattern.Array.data[0].x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3169802135989917675, guid: 55dd970b59337974eb260e57d0c39008, type: 3}
+      propertyPath: ConstellationList.Array.data[7].starPattern.Array.data[0].y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3169802135989917675, guid: 55dd970b59337974eb260e57d0c39008, type: 3}
+      propertyPath: ConstellationList.Array.data[7].starPattern.Array.data[1].x
+      value: 222
+      objectReference: {fileID: 0}
+    - target: {fileID: 3169802135989917675, guid: 55dd970b59337974eb260e57d0c39008, type: 3}
+      propertyPath: ConstellationList.Array.data[7].starPattern.Array.data[1].y
+      value: 66
+      objectReference: {fileID: 0}
+    - target: {fileID: 3169802135989917675, guid: 55dd970b59337974eb260e57d0c39008, type: 3}
+      propertyPath: ConstellationList.Array.data[7].starPattern.Array.data[2].x
+      value: 525
+      objectReference: {fileID: 0}
+    - target: {fileID: 3169802135989917675, guid: 55dd970b59337974eb260e57d0c39008, type: 3}
+      propertyPath: ConstellationList.Array.data[7].starPattern.Array.data[2].y
+      value: 35
+      objectReference: {fileID: 0}
+    - target: {fileID: 3169802135989917675, guid: 55dd970b59337974eb260e57d0c39008, type: 3}
+      propertyPath: ConstellationList.Array.data[7].starPattern.Array.data[3].x
+      value: 612
+      objectReference: {fileID: 0}
+    - target: {fileID: 3169802135989917675, guid: 55dd970b59337974eb260e57d0c39008, type: 3}
+      propertyPath: ConstellationList.Array.data[7].starPattern.Array.data[3].y
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3169802135989917675, guid: 55dd970b59337974eb260e57d0c39008, type: 3}
+      propertyPath: ConstellationList.Array.data[7].starPattern.Array.data[4].x
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 3169802135989917675, guid: 55dd970b59337974eb260e57d0c39008, type: 3}
+      propertyPath: ConstellationList.Array.data[7].starPattern.Array.data[4].y
+      value: 262
+      objectReference: {fileID: 0}
+    - target: {fileID: 3169802135989917675, guid: 55dd970b59337974eb260e57d0c39008, type: 3}
+      propertyPath: ConstellationList.Array.data[7].starPattern.Array.data[5].x
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 3169802135989917675, guid: 55dd970b59337974eb260e57d0c39008, type: 3}
+      propertyPath: ConstellationList.Array.data[7].starPattern.Array.data[5].y
+      value: 400
       objectReference: {fileID: 0}
     - target: {fileID: 3169802135989917675, guid: 55dd970b59337974eb260e57d0c39008, type: 3}
       propertyPath: ConstellationList.Array.data[8].starPattern.Array.data[0].x
@@ -2304,15 +2368,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3169802135989917675, guid: 55dd970b59337974eb260e57d0c39008, type: 3}
       propertyPath: ConstellationList.Array.data[8].starPattern.Array.data[1].x
-      value: 222
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3169802135989917675, guid: 55dd970b59337974eb260e57d0c39008, type: 3}
       propertyPath: ConstellationList.Array.data[8].starPattern.Array.data[1].y
-      value: 66
+      value: 132
       objectReference: {fileID: 0}
     - target: {fileID: 3169802135989917675, guid: 55dd970b59337974eb260e57d0c39008, type: 3}
       propertyPath: ConstellationList.Array.data[8].starPattern.Array.data[2].x
-      value: 525
+      value: 300
       objectReference: {fileID: 0}
     - target: {fileID: 3169802135989917675, guid: 55dd970b59337974eb260e57d0c39008, type: 3}
       propertyPath: ConstellationList.Array.data[8].starPattern.Array.data[2].y
@@ -2320,19 +2384,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3169802135989917675, guid: 55dd970b59337974eb260e57d0c39008, type: 3}
       propertyPath: ConstellationList.Array.data[8].starPattern.Array.data[3].x
-      value: 612
+      value: 450
       objectReference: {fileID: 0}
     - target: {fileID: 3169802135989917675, guid: 55dd970b59337974eb260e57d0c39008, type: 3}
       propertyPath: ConstellationList.Array.data[8].starPattern.Array.data[3].y
-      value: 5
+      value: 370
       objectReference: {fileID: 0}
     - target: {fileID: 3169802135989917675, guid: 55dd970b59337974eb260e57d0c39008, type: 3}
       propertyPath: ConstellationList.Array.data[8].starPattern.Array.data[4].x
-      value: 200
+      value: 431
       objectReference: {fileID: 0}
     - target: {fileID: 3169802135989917675, guid: 55dd970b59337974eb260e57d0c39008, type: 3}
       propertyPath: ConstellationList.Array.data[8].starPattern.Array.data[4].y
-      value: 262
+      value: 515
       objectReference: {fileID: 0}
     - target: {fileID: 3169802135989917675, guid: 55dd970b59337974eb260e57d0c39008, type: 3}
       propertyPath: ConstellationList.Array.data[8].starPattern.Array.data[5].x
@@ -2343,36 +2407,44 @@ PrefabInstance:
       value: 400
       objectReference: {fileID: 0}
     - target: {fileID: 3169802135989917675, guid: 55dd970b59337974eb260e57d0c39008, type: 3}
+      propertyPath: ConstellationList.Array.data[9].starPattern.Array.data[0].x
+      value: -235
+      objectReference: {fileID: 0}
+    - target: {fileID: 3169802135989917675, guid: 55dd970b59337974eb260e57d0c39008, type: 3}
+      propertyPath: ConstellationList.Array.data[9].starPattern.Array.data[0].y
+      value: 185
+      objectReference: {fileID: 0}
+    - target: {fileID: 3169802135989917675, guid: 55dd970b59337974eb260e57d0c39008, type: 3}
       propertyPath: ConstellationList.Array.data[9].starPattern.Array.data[1].x
-      value: 0
+      value: -250
       objectReference: {fileID: 0}
     - target: {fileID: 3169802135989917675, guid: 55dd970b59337974eb260e57d0c39008, type: 3}
       propertyPath: ConstellationList.Array.data[9].starPattern.Array.data[1].y
-      value: 132
+      value: 400
       objectReference: {fileID: 0}
     - target: {fileID: 3169802135989917675, guid: 55dd970b59337974eb260e57d0c39008, type: 3}
       propertyPath: ConstellationList.Array.data[9].starPattern.Array.data[2].x
-      value: 300
+      value: -35
       objectReference: {fileID: 0}
     - target: {fileID: 3169802135989917675, guid: 55dd970b59337974eb260e57d0c39008, type: 3}
       propertyPath: ConstellationList.Array.data[9].starPattern.Array.data[2].y
-      value: 35
+      value: 295
       objectReference: {fileID: 0}
     - target: {fileID: 3169802135989917675, guid: 55dd970b59337974eb260e57d0c39008, type: 3}
       propertyPath: ConstellationList.Array.data[9].starPattern.Array.data[3].x
-      value: 450
+      value: 53
       objectReference: {fileID: 0}
     - target: {fileID: 3169802135989917675, guid: 55dd970b59337974eb260e57d0c39008, type: 3}
       propertyPath: ConstellationList.Array.data[9].starPattern.Array.data[3].y
-      value: 370
+      value: 400
       objectReference: {fileID: 0}
     - target: {fileID: 3169802135989917675, guid: 55dd970b59337974eb260e57d0c39008, type: 3}
       propertyPath: ConstellationList.Array.data[9].starPattern.Array.data[4].x
-      value: 431
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3169802135989917675, guid: 55dd970b59337974eb260e57d0c39008, type: 3}
       propertyPath: ConstellationList.Array.data[9].starPattern.Array.data[4].y
-      value: 515
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3169802135989917675, guid: 55dd970b59337974eb260e57d0c39008, type: 3}
       propertyPath: ConstellationList.Array.data[9].starPattern.Array.data[5].x
@@ -2384,67 +2456,67 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3169802135989917675, guid: 55dd970b59337974eb260e57d0c39008, type: 3}
       propertyPath: ConstellationList.Array.data[10].starPattern.Array.data[0].x
-      value: -235
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3169802135989917675, guid: 55dd970b59337974eb260e57d0c39008, type: 3}
       propertyPath: ConstellationList.Array.data[10].starPattern.Array.data[0].y
-      value: 185
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3169802135989917675, guid: 55dd970b59337974eb260e57d0c39008, type: 3}
       propertyPath: ConstellationList.Array.data[10].starPattern.Array.data[1].x
-      value: -250
-      objectReference: {fileID: 0}
-    - target: {fileID: 3169802135989917675, guid: 55dd970b59337974eb260e57d0c39008, type: 3}
-      propertyPath: ConstellationList.Array.data[10].starPattern.Array.data[1].y
-      value: 400
-      objectReference: {fileID: 0}
-    - target: {fileID: 3169802135989917675, guid: 55dd970b59337974eb260e57d0c39008, type: 3}
-      propertyPath: ConstellationList.Array.data[10].starPattern.Array.data[2].x
-      value: -35
-      objectReference: {fileID: 0}
-    - target: {fileID: 3169802135989917675, guid: 55dd970b59337974eb260e57d0c39008, type: 3}
-      propertyPath: ConstellationList.Array.data[10].starPattern.Array.data[2].y
-      value: 295
-      objectReference: {fileID: 0}
-    - target: {fileID: 3169802135989917675, guid: 55dd970b59337974eb260e57d0c39008, type: 3}
-      propertyPath: ConstellationList.Array.data[10].starPattern.Array.data[3].x
-      value: 53
-      objectReference: {fileID: 0}
-    - target: {fileID: 3169802135989917675, guid: 55dd970b59337974eb260e57d0c39008, type: 3}
-      propertyPath: ConstellationList.Array.data[10].starPattern.Array.data[3].y
-      value: 400
-      objectReference: {fileID: 0}
-    - target: {fileID: 3169802135989917675, guid: 55dd970b59337974eb260e57d0c39008, type: 3}
-      propertyPath: ConstellationList.Array.data[10].starPattern.Array.data[4].x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3169802135989917675, guid: 55dd970b59337974eb260e57d0c39008, type: 3}
-      propertyPath: ConstellationList.Array.data[10].starPattern.Array.data[4].y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3169802135989917675, guid: 55dd970b59337974eb260e57d0c39008, type: 3}
-      propertyPath: ConstellationList.Array.data[11].starPattern.Array.data[0].x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3169802135989917675, guid: 55dd970b59337974eb260e57d0c39008, type: 3}
-      propertyPath: ConstellationList.Array.data[11].starPattern.Array.data[0].y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3169802135989917675, guid: 55dd970b59337974eb260e57d0c39008, type: 3}
-      propertyPath: ConstellationList.Array.data[11].starPattern.Array.data[1].x
       value: -40
       objectReference: {fileID: 0}
     - target: {fileID: 3169802135989917675, guid: 55dd970b59337974eb260e57d0c39008, type: 3}
-      propertyPath: ConstellationList.Array.data[11].starPattern.Array.data[1].y
+      propertyPath: ConstellationList.Array.data[10].starPattern.Array.data[1].y
       value: 195
       objectReference: {fileID: 0}
     - target: {fileID: 3169802135989917675, guid: 55dd970b59337974eb260e57d0c39008, type: 3}
-      propertyPath: ConstellationList.Array.data[11].starPattern.Array.data[2].x
+      propertyPath: ConstellationList.Array.data[10].starPattern.Array.data[2].x
       value: 210
       objectReference: {fileID: 0}
     - target: {fileID: 3169802135989917675, guid: 55dd970b59337974eb260e57d0c39008, type: 3}
-      propertyPath: ConstellationList.Array.data[11].starPattern.Array.data[2].y
+      propertyPath: ConstellationList.Array.data[10].starPattern.Array.data[2].y
       value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 3169802135989917675, guid: 55dd970b59337974eb260e57d0c39008, type: 3}
+      propertyPath: ConstellationList.Array.data[10].starPattern.Array.data[3].x
+      value: 110
+      objectReference: {fileID: 0}
+    - target: {fileID: 3169802135989917675, guid: 55dd970b59337974eb260e57d0c39008, type: 3}
+      propertyPath: ConstellationList.Array.data[10].starPattern.Array.data[3].y
+      value: 410
+      objectReference: {fileID: 0}
+    - target: {fileID: 3169802135989917675, guid: 55dd970b59337974eb260e57d0c39008, type: 3}
+      propertyPath: ConstellationList.Array.data[10].starPattern.Array.data[4].x
+      value: 445
+      objectReference: {fileID: 0}
+    - target: {fileID: 3169802135989917675, guid: 55dd970b59337974eb260e57d0c39008, type: 3}
+      propertyPath: ConstellationList.Array.data[10].starPattern.Array.data[4].y
+      value: 240
+      objectReference: {fileID: 0}
+    - target: {fileID: 3169802135989917675, guid: 55dd970b59337974eb260e57d0c39008, type: 3}
+      propertyPath: ConstellationList.Array.data[11].starPattern.Array.data[0].x
+      value: -490
+      objectReference: {fileID: 0}
+    - target: {fileID: 3169802135989917675, guid: 55dd970b59337974eb260e57d0c39008, type: 3}
+      propertyPath: ConstellationList.Array.data[11].starPattern.Array.data[0].y
+      value: 160
+      objectReference: {fileID: 0}
+    - target: {fileID: 3169802135989917675, guid: 55dd970b59337974eb260e57d0c39008, type: 3}
+      propertyPath: ConstellationList.Array.data[11].starPattern.Array.data[1].x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3169802135989917675, guid: 55dd970b59337974eb260e57d0c39008, type: 3}
+      propertyPath: ConstellationList.Array.data[11].starPattern.Array.data[1].y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3169802135989917675, guid: 55dd970b59337974eb260e57d0c39008, type: 3}
+      propertyPath: ConstellationList.Array.data[11].starPattern.Array.data[2].x
+      value: -400
+      objectReference: {fileID: 0}
+    - target: {fileID: 3169802135989917675, guid: 55dd970b59337974eb260e57d0c39008, type: 3}
+      propertyPath: ConstellationList.Array.data[11].starPattern.Array.data[2].y
+      value: 360
       objectReference: {fileID: 0}
     - target: {fileID: 3169802135989917675, guid: 55dd970b59337974eb260e57d0c39008, type: 3}
       propertyPath: ConstellationList.Array.data[11].starPattern.Array.data[3].x
@@ -2464,43 +2536,43 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3169802135989917675, guid: 55dd970b59337974eb260e57d0c39008, type: 3}
       propertyPath: ConstellationList.Array.data[12].starPattern.Array.data[0].x
-      value: -490
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3169802135989917675, guid: 55dd970b59337974eb260e57d0c39008, type: 3}
       propertyPath: ConstellationList.Array.data[12].starPattern.Array.data[0].y
-      value: 160
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3169802135989917675, guid: 55dd970b59337974eb260e57d0c39008, type: 3}
       propertyPath: ConstellationList.Array.data[12].starPattern.Array.data[1].x
-      value: 0
+      value: 115
       objectReference: {fileID: 0}
     - target: {fileID: 3169802135989917675, guid: 55dd970b59337974eb260e57d0c39008, type: 3}
       propertyPath: ConstellationList.Array.data[12].starPattern.Array.data[1].y
-      value: 0
+      value: 317
       objectReference: {fileID: 0}
     - target: {fileID: 3169802135989917675, guid: 55dd970b59337974eb260e57d0c39008, type: 3}
       propertyPath: ConstellationList.Array.data[12].starPattern.Array.data[2].x
-      value: -400
+      value: 164
       objectReference: {fileID: 0}
     - target: {fileID: 3169802135989917675, guid: 55dd970b59337974eb260e57d0c39008, type: 3}
       propertyPath: ConstellationList.Array.data[12].starPattern.Array.data[2].y
-      value: 360
+      value: 300
       objectReference: {fileID: 0}
     - target: {fileID: 3169802135989917675, guid: 55dd970b59337974eb260e57d0c39008, type: 3}
       propertyPath: ConstellationList.Array.data[12].starPattern.Array.data[3].x
-      value: 110
+      value: 222
       objectReference: {fileID: 0}
     - target: {fileID: 3169802135989917675, guid: 55dd970b59337974eb260e57d0c39008, type: 3}
       propertyPath: ConstellationList.Array.data[12].starPattern.Array.data[3].y
-      value: 410
+      value: 313
       objectReference: {fileID: 0}
     - target: {fileID: 3169802135989917675, guid: 55dd970b59337974eb260e57d0c39008, type: 3}
       propertyPath: ConstellationList.Array.data[12].starPattern.Array.data[4].x
-      value: 445
+      value: 507
       objectReference: {fileID: 0}
     - target: {fileID: 3169802135989917675, guid: 55dd970b59337974eb260e57d0c39008, type: 3}
       propertyPath: ConstellationList.Array.data[12].starPattern.Array.data[4].y
-      value: 240
+      value: 168
       objectReference: {fileID: 0}
     - target: {fileID: 3169802135989917675, guid: 55dd970b59337974eb260e57d0c39008, type: 3}
       propertyPath: ConstellationList.Array.data[13].starPattern.Array.data[0].x
@@ -2512,27 +2584,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3169802135989917675, guid: 55dd970b59337974eb260e57d0c39008, type: 3}
       propertyPath: ConstellationList.Array.data[13].starPattern.Array.data[1].x
-      value: 115
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 3169802135989917675, guid: 55dd970b59337974eb260e57d0c39008, type: 3}
       propertyPath: ConstellationList.Array.data[13].starPattern.Array.data[1].y
-      value: 317
+      value: 141
       objectReference: {fileID: 0}
     - target: {fileID: 3169802135989917675, guid: 55dd970b59337974eb260e57d0c39008, type: 3}
       propertyPath: ConstellationList.Array.data[13].starPattern.Array.data[2].x
-      value: 164
+      value: 270
       objectReference: {fileID: 0}
     - target: {fileID: 3169802135989917675, guid: 55dd970b59337974eb260e57d0c39008, type: 3}
       propertyPath: ConstellationList.Array.data[13].starPattern.Array.data[2].y
-      value: 300
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 3169802135989917675, guid: 55dd970b59337974eb260e57d0c39008, type: 3}
       propertyPath: ConstellationList.Array.data[13].starPattern.Array.data[3].x
-      value: 222
+      value: 337
       objectReference: {fileID: 0}
     - target: {fileID: 3169802135989917675, guid: 55dd970b59337974eb260e57d0c39008, type: 3}
       propertyPath: ConstellationList.Array.data[13].starPattern.Array.data[3].y
-      value: 313
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 3169802135989917675, guid: 55dd970b59337974eb260e57d0c39008, type: 3}
       propertyPath: ConstellationList.Array.data[13].starPattern.Array.data[4].x
@@ -3406,7 +3478,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_HorizontalFit: 0
-  m_VerticalFit: 0
+  m_VerticalFit: 1
 --- !u!1 &1692044633
 GameObject:
   m_ObjectHideFlags: 0
